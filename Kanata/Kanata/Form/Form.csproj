@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42520539-81FD-4503-9857-5122E94A6F3E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Form</RootNamespace>
+    <AssemblyName>Kanata</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Kanata_正方形.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form_TaskUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TaskUpdate.Designer.cs">
+      <DependentUpon>Form_TaskUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TaskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TaskManager.Designer.cs">
+      <DependentUpon>Form_TaskManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_UserMst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_UserMst.Designer.cs">
+      <DependentUpon>Form_UserMst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_LogIn.Designer.cs">
+      <DependentUpon>Form_LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_TaskManager.resx">
+      <DependentUpon>Form_TaskManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_LogIn.resx">
+      <DependentUpon>Form_LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TaskUpdate.resx">
+      <DependentUpon>Form_TaskUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_UserMst.resx">
+      <DependentUpon>Form_UserMst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b9793169-d7b6-46fa-b6f6-68b06570dcf5}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{2cd50c4d-ef43-4d09-b108-b388f58e8485}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{ed28938b-11fc-454c-80d6-4ac5a1f27324}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blackvariant-Button-Ui-System-Apps-ActivityMonitor.ico" />
+    <Content Include="Kanata_正方形.ico" />
+    <Content Include="アイコン用画像.ico" />
+    <Content Include="アイコン用画像_2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

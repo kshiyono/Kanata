@@ -1,0 +1,5 @@
+C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190303_TaskManagerUserMst\TaskManagerUserMst\Main\bin\Debug\Main.dll
+C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190303_TaskManagerUserMst\TaskManagerUserMst\Main\bin\Debug\Main.pdb
+C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190303_TaskManagerUserMst\TaskManagerUserMst\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
+C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190303_TaskManagerUserMst\TaskManagerUserMst\Main\obj\Debug\Main.dll
+C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190303_TaskManagerUserMst\TaskManagerUserMst\Main\obj\Debug\Main.pdb

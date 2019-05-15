@@ -1,0 +1,1 @@
+string constr = @"Data Source=(local);Initial Catalog=TaskManager;Connect Timeout=60;Persist Security Info=True;User ID=sa;Password=Password123";
