@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.TabPage_TaskSchedile = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -371,7 +371,7 @@
             this.label11.Location = new System.Drawing.Point(15, 56);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 18);
+            this.label11.Size = new System.Drawing.Size(86, 18);
             this.label11.TabIndex = 39;
             this.label11.Text = "ユーザー名";
             // 
@@ -389,7 +389,7 @@
             this.label7.Location = new System.Drawing.Point(15, 26);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 18);
+            this.label7.Size = new System.Drawing.Size(84, 18);
             this.label7.TabIndex = 37;
             this.label7.Text = "ユーザーID";
             // 
@@ -458,7 +458,7 @@
             this.label12.Location = new System.Drawing.Point(273, 62);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 18);
+            this.label12.Size = new System.Drawing.Size(66, 18);
             this.label12.TabIndex = 31;
             this.label12.Text = "グループ";
             // 
@@ -579,26 +579,26 @@
             // Column_No
             // 
             this.Column_No.Text = "No";
-            this.Column_No.Width = 40;
+            this.Column_No.Width = 30;
             // 
             // Column_Day
             // 
             this.Column_Day.Text = "期限";
-            this.Column_Day.Width = 100;
+            this.Column_Day.Width = 80;
             // 
             // Column_Status
             // 
             this.Column_Status.Text = "状況";
+            this.Column_Status.Width = 50;
             // 
             // Column_Kind
             // 
             this.Column_Kind.Text = "種別";
-            this.Column_Kind.Width = 80;
+            this.Column_Kind.Width = 50;
             // 
             // Column_Group
             // 
             this.Column_Group.Text = "グループ";
-            this.Column_Group.Width = 80;
             // 
             // Column_Task
             // 
@@ -608,17 +608,17 @@
             // Column_Plan
             // 
             this.Column_Plan.Text = "予定";
-            this.Column_Plan.Width = 50;
+            this.Column_Plan.Width = 45;
             // 
             // Column_Result
             // 
             this.Column_Result.Text = "実績";
-            this.Column_Result.Width = 50;
+            this.Column_Result.Width = 45;
             // 
             // Column_Difference
             // 
             this.Column_Difference.Text = "予実";
-            this.Column_Difference.Width = 50;
+            this.Column_Difference.Width = 45;
             // 
             // Column_TaskNo
             // 
@@ -689,7 +689,7 @@
             this.label13.Location = new System.Drawing.Point(12, 134);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 18);
+            this.label13.Size = new System.Drawing.Size(66, 18);
             this.label13.TabIndex = 47;
             this.label13.Text = "グループ";
             // 
@@ -922,7 +922,7 @@
             this.label15.Location = new System.Drawing.Point(12, 101);
             this.label15.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(64, 18);
+            this.label15.Size = new System.Drawing.Size(66, 18);
             this.label15.TabIndex = 47;
             this.label15.Text = "グループ";
             // 
@@ -1013,26 +1013,26 @@
             // 
             // Chart_TaskBudget
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart_TaskBudget.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart_TaskBudget.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.Chart_TaskBudget.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Chart_TaskBudget.Legends.Add(legend4);
             this.Chart_TaskBudget.Location = new System.Drawing.Point(10, 200);
             this.Chart_TaskBudget.Name = "Chart_TaskBudget";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 10;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "Series1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 10;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series2.Name = "Series2";
-            this.Chart_TaskBudget.Series.Add(series1);
-            this.Chart_TaskBudget.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.MarkerSize = 10;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series7.Name = "Series1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.MarkerSize = 10;
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series8.Name = "Series2";
+            this.Chart_TaskBudget.Series.Add(series7);
+            this.Chart_TaskBudget.Series.Add(series8);
             this.Chart_TaskBudget.Size = new System.Drawing.Size(1302, 709);
             this.Chart_TaskBudget.TabIndex = 5;
             this.Chart_TaskBudget.Text = "chart1";

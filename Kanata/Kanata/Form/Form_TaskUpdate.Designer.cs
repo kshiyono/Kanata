@@ -63,9 +63,9 @@
             // Label_ResultTime_Update
             // 
             this.Label_ResultTime_Update.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Label_ResultTime_Update.Location = new System.Drawing.Point(373, 10);
+            this.Label_ResultTime_Update.Location = new System.Drawing.Point(341, 10);
             this.Label_ResultTime_Update.Name = "Label_ResultTime_Update";
-            this.Label_ResultTime_Update.Size = new System.Drawing.Size(190, 78);
+            this.Label_ResultTime_Update.Size = new System.Drawing.Size(222, 78);
             this.Label_ResultTime_Update.TabIndex = 0;
             // 
             // Button_Start_Update
@@ -272,7 +272,7 @@
             this.label7.Location = new System.Drawing.Point(315, 135);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 18);
+            this.label7.Size = new System.Drawing.Size(66, 18);
             this.label7.TabIndex = 50;
             this.label7.Text = "グループ";
             // 

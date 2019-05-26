@@ -187,3 +187,23 @@ C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Form\obj\Debug\Form.csproj.CopyComplete
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Form\obj\Debug\Kanata.exe
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Form\obj\Debug\Kanata.pdb
+D:\Git\Kanata\Kanata\Form\bin\Debug\Kanata.exe.config
+D:\Git\Kanata\Kanata\Form\bin\Debug\Kanata.exe
+D:\Git\Kanata\Kanata\Form\bin\Debug\Kanata.pdb
+D:\Git\Kanata\Kanata\Form\bin\Debug\Common.dll
+D:\Git\Kanata\Kanata\Form\bin\Debug\Data.dll
+D:\Git\Kanata\Kanata\Form\bin\Debug\Entity.dll
+D:\Git\Kanata\Kanata\Form\bin\Debug\Common.pdb
+D:\Git\Kanata\Kanata\Form\bin\Debug\Data.pdb
+D:\Git\Kanata\Kanata\Form\bin\Debug\Entity.pdb
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.csprojAssemblyReference.cache
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.Form_TaskManager.resources
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.Form_LogIn.resources
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.Form_TaskUpdate.resources
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.Form_UserMst.resources
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.Properties.Resources.resources
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.csproj.GenerateResource.cache
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.csproj.CoreCompileInputs.cache
+D:\Git\Kanata\Kanata\Form\obj\Debug\Form.csproj.CopyComplete
+D:\Git\Kanata\Kanata\Form\obj\Debug\Kanata.exe
+D:\Git\Kanata\Kanata\Form\obj\Debug\Kanata.pdb

@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Kanata_正方形.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -125,12 +126,6 @@
       <Project>{ed28938b-11fc-454c-80d6-4ac5a1f27324}</Project>
       <Name>Entity</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Blackvariant-Button-Ui-System-Apps-ActivityMonitor.ico" />
-    <Content Include="Kanata_正方形.ico" />
-    <Content Include="アイコン用画像.ico" />
-    <Content Include="アイコン用画像_2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
