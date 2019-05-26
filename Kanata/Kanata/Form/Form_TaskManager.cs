@@ -37,7 +37,7 @@ namespace Form
 
             // 備忘録：ユーザーNoの設定は事前に行っておく。
             //         コンボボックスのデータ検索時に「ユーザーNo」を利用するため。
-            TextBox_UserNo.Text = loginUser.USER_NO;
+            TextBox_UserNo.Text = loginUser._userNo;
 
             #region　コンボボックス設定処理
 
@@ -109,8 +109,8 @@ namespace Form
             // ユーザー情報を設定
             // タスク検索～更新時にユーザーNoが必要なため。
             // TODO：ユーザー情報テキストボックスを見易くする。
-            TextBox_UserId.Text         = loginUser.USER_ID;
-            TextBox_UserName.Text       = loginUser.USER_NAME;
+            TextBox_UserId.Text         = loginUser._userId;
+            TextBox_UserName.Text       = loginUser._userName;
             TextBox_UserNo.Enabled      = false;
             TextBox_UserNo.BackColor    = Color.White;
             TextBox_UserId.Enabled      = false;
