@@ -32,3 +32,9 @@ C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Entity\obj\Debug\Entity.dll
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Entity\obj\Debug\Entity.pdb
+D:\Git\Kanata\Kanata\Entity\bin\Debug\Entity.dll
+D:\Git\Kanata\Kanata\Entity\bin\Debug\Entity.pdb
+D:\Git\Kanata\Kanata\Entity\obj\Debug\Entity.csprojAssemblyReference.cache
+D:\Git\Kanata\Kanata\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+D:\Git\Kanata\Kanata\Entity\obj\Debug\Entity.dll
+D:\Git\Kanata\Kanata\Entity\obj\Debug\Entity.pdb

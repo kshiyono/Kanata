@@ -357,55 +357,6 @@ namespace Data
         }
         #endregion
 
-        #region タスクグループ更新
-        /// <summary>
-        /// タスクグループ名を更新する。
-        /// </summary>
-        /// <param name="logInUserNo">ログインユーザーNo</param>
-        /// <param name="taskGroupCode">タスクグループコード</param>
-        /// <param name="taskGroupMei">タスクグループ名</param>
-        /// <returns></returns>
-        public void TaskGroupName_Update(string logInUserNo, string taskGroupCode, string taskGroupMei)
-        {
-            DataBaceAccess dbAccess = new DataBaceAccess();
-            SqlConnection connection = dbAccess.GetSqlSvrConnect();
-            SqlCommand command = connection.CreateCommand();
-
-            try
-            {
-                // データベースの接続開始
-                connection.Open();
-
-                // SQLの準備
-                StringBuilder query = new StringBuilder();
-
-                query.AppendLine("UPDATE MST_USER_TASK_GROUP_CODE ");
-                query.AppendLine("SET ");
-                query.AppendLine("    TASK_GROUP_NAME   = @TASK_GROUP_NAME ");
-                query.AppendLine("WHERE ");
-                query.AppendLine("    USER_NO           = @USER_NO ");
-                query.AppendLine("AND TASK_GROUP_CODE   = @TASK_GROUP_CODE ");
-
-                command.CommandText = query.ToString();
-
-                command.Parameters.Add(new SqlParameter("@TASK_GROUP_NAME", taskGroupMei));
-                command.Parameters.Add(new SqlParameter("@USER_NO", logInUserNo));
-                command.Parameters.Add(new SqlParameter("@TASK_GROUP_CODE", taskGroupCode));
-
-                command.ExecuteNonQuery();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-        #endregion
-
         #endregion
     }
 }

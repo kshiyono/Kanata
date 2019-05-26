@@ -1,4 +1,5 @@
 ﻿using Data;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,17 +70,17 @@ namespace Form
                 return;
             #endregion
 
-            ComboData comboData = new ComboData();
+            CodeData codeData   = new CodeData(TextBox_UserNo_UserMst.Text);
 
             for (int rowCount = 0; rowCount < DataGridView_TaskGroup_UserMst.Rows.Count; rowCount++)
             {
+                Code taskGroupCode = new Code(  DataGridView_TaskGroup_UserMst.Rows[rowCount].Cells[0].Value.ToString(),
+                                                DataGridView_TaskGroup_UserMst.Rows[rowCount].Cells[1].Value.ToString()
+                                            );
+
                 // タスクグループ名を更新する。
-                // TaskGroupName_Update(ユーザーNo, タスクグループコード, タスクグループ名)
-                comboData.TaskGroupName_Update(
-                    TextBox_UserNo_UserMst.Text,
-                    DataGridView_TaskGroup_UserMst.Rows[rowCount].Cells[0].Value.ToString(),
-                    DataGridView_TaskGroup_UserMst.Rows[rowCount].Cells[1].Value.ToString()
-                );
+                // TaskGroupMstUpdate(タスクグループコードインスタンス)
+                codeData.TaskGroupMstUpdate(taskGroupCode);
             }
 
             #region 更新通知処理

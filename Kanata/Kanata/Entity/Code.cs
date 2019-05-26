@@ -8,7 +8,13 @@ namespace Entity
 {
     public class Code
     {
-        public string CODE { get; set; }
-        public string NAME { get; set; }
+        public string _code { get; private set; }
+        public string _name { get; private set; }
+
+        public Code(string code, string name = "")
+        {
+            _code   = code;
+            _name   = name;
+        }
     }
 }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChartData.cs" />
+    <Compile Include="CodeData.cs" />
     <Compile Include="ComboData.cs" />
     <Compile Include="FlgData.cs" />
     <Compile Include="UserData.cs" />
