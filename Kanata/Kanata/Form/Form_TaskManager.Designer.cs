@@ -515,7 +515,7 @@
             this.Button_Task_Add.TabIndex = 30;
             this.Button_Task_Add.Text = "追加";
             this.Button_Task_Add.UseVisualStyleBackColor = true;
-            this.Button_Task_Add.Click += new System.EventHandler(this.Button_Task_Add_Click);
+            this.Button_Task_Add.Click += new System.EventHandler(this.ButtonTaskAddClick);
             // 
             // ComboBox_KindName_Add
             // 

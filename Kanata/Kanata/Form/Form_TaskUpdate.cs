@@ -28,7 +28,7 @@ namespace Form
 
             // 備忘録：ユーザーNoの設定は事前に行っておく。
             //         コンボボックスのデータ検索時に「ユーザーNo」を利用するため。
-            TextBox_UserNo_Update.Text = taskUpdate.USER_NO;
+            TextBox_UserNo_Update.Text = taskUpdate._userNo;
 
             #region　コンボボックスデータ設定処理
 
@@ -63,16 +63,16 @@ namespace Form
             #endregion
 
             #region 初期表示処理
-            TextBox_TodoDay_Update.Text      = taskUpdate.TODO_YMD.ToString().Substring(0, 10);
-            TextBox_PlanTime_Update.Text     = taskUpdate.PLAN_TIME.ToString();
-            ComboBox_StatusName_Update.Text  = taskUpdate.TASK_STATUS_NAME;
-            ComboBox_KindName_Update.Text    = taskUpdate.TASK_KIND_NAME;
-            ComboBox_GroupName_Update.Text   = taskUpdate.TASK_GROUP_NAME;
-            TextBox_TaskName_Update.Text     = taskUpdate.TASK_NAME;
-            Label_ResultTime_Update.Text     = taskUpdate.RESULT_TIME.ToString(@"hh\:mm");
-            TextBox_ResultTimeReadOnly_Update.Text   = taskUpdate.RESULT_TIME.ToString(@"hh\:mm");
-            TextBox_TaskNo_Update.Text       = taskUpdate.TASK_NO;
-            TextBox_Memo_Update.Text         = taskUpdate.MEMO;
+            TextBox_TodoDay_Update.Text                 = taskUpdate._todoYmd.ToString().Substring(0, 10);
+            TextBox_PlanTime_Update.Text                = taskUpdate._planTime.ToString();
+            ComboBox_StatusName_Update.Text             = taskUpdate._taskStatusCode._name;
+            ComboBox_KindName_Update.Text               = taskUpdate._taskKindCode._name;
+            ComboBox_GroupName_Update.Text              = taskUpdate._taskGroupCode._name;
+            TextBox_TaskName_Update.Text                = taskUpdate._taskName;
+            Label_ResultTime_Update.Text                = taskUpdate._resultTime.ToString();
+            TextBox_ResultTimeReadOnly_Update.Text      = taskUpdate._resultTime.ToString();
+            TextBox_TaskNo_Update.Text                  = taskUpdate._taskNo;
+            TextBox_Memo_Update.Text                    = taskUpdate._memo;
             #endregion
 
             // ユーザーNoは入力不可
@@ -193,21 +193,18 @@ namespace Form
                 Button_Start_Update.Text = "開始";
 
                 #region 中断状態のタスクを更新
-                // 中断タスク用インスタンス生成
-                Task task_Stop = new Task
-                {
-                    // 値の代入
-                    TASK_NO = TextBox_TaskNo_Update.Text,
-                    USER_NO = TextBox_UserNo_Update.Text,
-                    RESULT_TIME = TimeSpan.Parse(Label_ResultTime_Update.Text),
-                    MEMO = TextBox_Memo_Update.Text
-                };
+                Task taskStop = new Task(
+                    TextBox_TaskNo_Update.Text,
+                    TextBox_UserNo_Update.Text,
+                    resultTime: TimeSpan.Parse(Label_ResultTime_Update.Text),
+                    memo: TextBox_Memo_Update.Text
+                );
 
                 // タスクデータインスタンス生成
                 TaskData taskData = new Data.TaskData();
 
                 // タスク更新
-                taskData.Task_Stop(task_Stop);
+                taskData.Task_Stop(taskStop);
                 #endregion
 
                 #region インスタンス状態設定
@@ -378,32 +375,34 @@ namespace Form
                 return;
             #endregion
 
-            // 更新タスク用インスタンス生成
-            Task task_Update = new Task
-           {
-                // 値の代入
-                TASK_NO             = TextBox_TaskNo_Update.Text,
-                USER_NO             = TextBox_UserNo_Update.Text,
-                UPDATE_YMD          = DateTime.Today,
-                TODO_YMD            = DateTime.Parse(TextBox_TodoDay_Update.Text),
-                FINISHED_YMD        = DateTime.Today,
-                TASK_STATUS_CODE    = TextBox_StatusCode_Update.Text,
-                TASK_KIND_CODE      = TextBox_KindCode_Update.Text,
-                TASK_GROUP_CODE     = TextBox_GroupCode_Update.Text,
-                TASK_NAME           = TextBox_TaskName_Update.Text,
-                PLAN_TIME           = TimeSpan.Parse(TextBox_PlanTime_Update.Text),
+            Code taskStatusCodeForUpdate  = new Code(TextBox_StatusCode_Update.Text);
+            Code taskKindCodeForUpdate    = new Code(TextBox_KindCode_Update.Text);
+            Code taskGroupCodeForUpdate   = new Code(TextBox_GroupCode_Update.Text);
+
+            Task taskUpdate = new Task(
+                TextBox_TaskNo_Update.Text,
+                TextBox_UserNo_Update.Text,
+                taskStatusCodeForUpdate,
+                taskKindCodeForUpdate,
+                taskGroupCodeForUpdate,
+                TextBox_TaskName_Update.Text,
+                TimeSpan.Parse(TextBox_PlanTime_Update.Text),
                 // 実績テキストボックスが空文字かNULLの場合はラベルを採用
-                RESULT_TIME         = TimeSpan.Parse(TextBox_ResultTime_Update.Text == ""
-                                        ? Label_ResultTime_Update.Text
-                                        : TextBox_ResultTime_Update.Text ?? Label_ResultTime_Update.Text),
-                MEMO                = TextBox_Memo_Update.Text
-            };
+                TimeSpan.Parse(TextBox_ResultTime_Update.Text == ""
+                  ? Label_ResultTime_Update.Text
+                  : TextBox_ResultTime_Update.Text ?? Label_ResultTime_Update.Text),
+                TextBox_Memo_Update.Text,
+                DateTime.Parse(TextBox_PlanTime_Update.Text),
+                DateTime.Today,
+                DateTime.Parse(TextBox_TodoDay_Update.Text),
+                DateTime.Today
+            );
 
             // タスクデータインスタンス生成
             TaskData taskData = new Data.TaskData();
 
             // タスク更新
-            taskData.Task_Update(task_Update);
+            taskData.Task_Update(taskUpdate);
 
             #region 更新通知処理
             DialogResult dr_OK = MessageBox.Show("更新が完了しました。",
@@ -533,33 +532,35 @@ namespace Form
                 return;
             #endregion
 
-            // 更新タスク用インスタンス生成
-            Task task_Update = new Task
-            {
-                // 値の代入
-                TASK_NO = TextBox_TaskNo_Update.Text,
-                USER_NO = TextBox_UserNo_Update.Text,
-                UPDATE_YMD = DateTime.Today,
-                TODO_YMD = DateTime.Parse(TextBox_TodoDay_Update.Text),
-                FINISHED_YMD = DateTime.Today,
-                // 完了処理時は、ステータスは"10"(済)固定
-                TASK_STATUS_CODE = "10",
-                TASK_KIND_CODE = TextBox_KindCode_Update.Text,
-                TASK_GROUP_CODE = TextBox_GroupCode_Update.Text,
-                TASK_NAME = TextBox_TaskName_Update.Text,
-                PLAN_TIME = TimeSpan.Parse(TextBox_PlanTime_Update.Text),
+            // 完了処理時は、ステータスは"10"(完了)固定
+            Code taskStatusCodeForCompleted     = new Code(Constants.TaskStatus.COMPLETED_10);
+            Code taskKindCodeForCompleted       = new Code(TextBox_KindCode_Update.Text);
+            Code taskGroupCodeForCompleted      = new Code(TextBox_GroupCode_Update.Text);
+
+            Task taskUpdate = new Task(
+                TextBox_TaskNo_Update.Text,
+                TextBox_UserNo_Update.Text,
+                taskStatusCodeForCompleted,
+                taskKindCodeForCompleted,
+                taskGroupCodeForCompleted,
+                TextBox_TaskName_Update.Text,
+                TimeSpan.Parse(TextBox_PlanTime_Update.Text),
                 // 実績テキストボックスが空文字かNULLの場合はラベルを採用
-                RESULT_TIME = TimeSpan.Parse(TextBox_ResultTime_Update.Text == ""
-                                        ? Label_ResultTime_Update.Text
-                                        : TextBox_ResultTime_Update.Text ?? Label_ResultTime_Update.Text),
-                MEMO = TextBox_Memo_Update.Text
-            };
+                TimeSpan.Parse(TextBox_ResultTime_Update.Text == ""
+                  ? Label_ResultTime_Update.Text
+                  : TextBox_ResultTime_Update.Text ?? Label_ResultTime_Update.Text),
+                TextBox_Memo_Update.Text,
+                DateTime.Parse(TextBox_PlanTime_Update.Text),
+                DateTime.Today,
+                DateTime.Parse(TextBox_TodoDay_Update.Text),
+                DateTime.Today
+            );
 
             // タスクデータインスタンス生成
             TaskData taskData = new Data.TaskData();
 
             // タスク更新
-            taskData.Task_Update(task_Update);
+            taskData.Task_Update(taskUpdate);
 
             #region 更新通知処理
             DialogResult dr_OK = MessageBox.Show("更新が完了しました。",
@@ -679,22 +680,22 @@ namespace Form
                 return;
             #endregion
 
-            // 削除タスク用インスタンス生成
-            Task Task_Delete = new Task
-            {
-                // 値の代入
-                TASK_NO = TextBox_TaskNo_Update.Text,
-                USER_NO = TextBox_UserNo_Update.Text,
-                // 削除処理時は、ステータスは"20"(削除)固定
-                TASK_STATUS_CODE = "20",
-                MEMO = TextBox_Memo_Update.Text
-            };
+            // 削除処理時は、ステータスは"20"(削除)固定
+            Code taskStatusCodeForDelete = new Code(Constants.TaskStatus.DELETE_20);
+
+            Task TaskDelete = new Task(
+                TextBox_TaskNo_Update.Text,
+                TextBox_UserNo_Update.Text,
+                taskStatusCodeForDelete,
+                memo: TextBox_Memo_Update.Text,
+                updateYmd: DateTime.Today
+            );
 
             // タスクデータインスタンス生成
             TaskData taskData = new Data.TaskData();
 
             // タスク更新
-            taskData.Task_Delete(Task_Delete);
+            taskData.Task_Delete(TaskDelete);
 
             #region 更新通知処理
             DialogResult dr_OK = MessageBox.Show("削除が完了しました。",

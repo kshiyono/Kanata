@@ -284,7 +284,7 @@ namespace Form
         #endregion
 
         #region タスク追加ボタン　★済★
-        private void Button_Task_Add_Click(object sender, EventArgs e)
+        private void ButtonTaskAddClick(object sender, EventArgs e)
         {
             #region エラー制御
             // 期限日が空の場合はエラー
@@ -369,23 +369,33 @@ namespace Form
             }
             #endregion
 
-            Task task_Add = new Task
-            {
-                USER_NO             = TextBox_UserNo.Text,
-                CREATE_YMD          = DateTime.Today,
-                TODO_YMD            = DateTime.Parse(TextBox_TodoDay_Add.Text),
-                // 追加タスクのステータスは、「未」(01)で固定。
-                TASK_STATUS_CODE    = Constants.TaskStatus.UNCOMPLETED_01,
-                TASK_KIND_CODE      = TextBox_KindCode_Add.Text,
-                TASK_GROUP_CODE     = TextBox_GroupCode_Add.Text,
-                TASK_NAME           = TextBox_TaskName_Add.Text,
-                PLAN_TIME           = TimeSpan.Parse(TextBox_PlanTime_Add.Text),
-            };
+            // 追加タスクのステータスは、「未」(01)で固定。
+            Code taskStatusCodeForAdd  = new Code(Constants.TaskStatus.UNCOMPLETED_01);
+            Code taskKindCodeForAdd    = new Code(TextBox_KindCode_Add.Text);
+            Code taskGroupCodeForAdd   = new Code(TextBox_GroupCode_Add.Text);
 
             TaskData taskData = new Data.TaskData();
 
+            Task taskAdd = new Task(
+                // 追加タスクのタスクNoを取得する。ユーザ毎(最大タスクNo+1)
+                taskData.Get_TaskNo_Max(TextBox_UserNo.Text),
+                TextBox_UserNo.Text,
+                taskStatusCodeForAdd,
+                taskKindCodeForAdd,
+                taskGroupCodeForAdd,
+                TextBox_TaskName_Add.Text,
+                planTime: TimeSpan.Parse(TextBox_PlanTime_Add.Text),
+                // 追加タスクに実績時間はゼロ分
+                resultTime: new TimeSpan(0),
+                memo: "",
+                createYmd: DateTime.Today,
+                updateYmd: DateTime.Parse("1900/01/01"),
+                todoYmd: DateTime.Parse(TextBox_TodoDay_Add.Text),
+                finishedYmd: DateTime.Parse("1900/01/01")
+            );
+
             // タスクの追加処理
-            taskData.Task_Insert(task_Add);
+            taskData.Task_Insert(taskAdd);
 
             // タスク一覧の再検索および表示
             this.TaskListSelectForListView();
@@ -518,17 +528,17 @@ namespace Form
             {
                 string[] view = {
                                       (countForList + 1).ToString()
-                                    , task.TODO_YMD.ToString().Substring(0,10)
-                                    , task.TASK_STATUS_NAME
-                                    , task.TASK_KIND_NAME
-                                    , task.TASK_GROUP_NAME
-                                    , task.TASK_NAME
-                                    , task.PLAN_TIME.ToString(@"hh\:mm")
-                                    , task.RESULT_TIME.ToString(@"hh\:mm")
-                                    , task.PLAN_TIME >= task.RESULT_TIME
-                                    ? (task.PLAN_TIME - task.RESULT_TIME).ToString(@"hh\:mm")
-                                    : "-"+ (task.PLAN_TIME - task.RESULT_TIME).ToString(@"hh\:mm")
-                                    , task.TASK_NO
+                                    , task._todoYmd.ToString().Substring(0,10)
+                                    , task._taskStatusCode._name
+                                    , task._taskKindCode._name
+                                    , task._taskGroupCode._name
+                                    , task._taskName
+                                    , task._planTime.ToString().Substring(0,5)
+                                    , task._resultTime.ToString().Substring(0,5)
+                                    , task._planTime >= task._resultTime
+                                    ? (task._planTime - task._resultTime).ToString().Substring(0,5)
+                                    : "-"+ (task._planTime - task._resultTime).ToString().Substring(0,5)
+                                    , task._taskNo
                                 };
 
                 // リストビューに追加表示
@@ -536,15 +546,15 @@ namespace Form
 
                 #region リストビュー表示設定の変更（背景色等）
                 // タスクステータスが「済」(10)の場合、背景：薄グレー
-                if (task.TASK_STATUS_CODE == Constants.TaskStatus.COMPLETED_10)
+                if (task._taskStatusCode._code == Constants.TaskStatus.COMPLETED_10)
                     ListView_Task.Items[countForList].BackColor = Color.Gainsboro;
 
                 // タスクステータスが「削除」(20)の場合、背景：濃グレー
-                if (task.TASK_STATUS_CODE == Constants.TaskStatus.DELETE_20)
+                if (task._taskStatusCode._code == Constants.TaskStatus.DELETE_20)
                     ListView_Task.Items[countForList].BackColor = Color.SlateGray;
 
                 // 期限日を過ぎている場合、背景：ネイビー　文字：白
-                if (task.TASK_STATUS_CODE == Constants.TaskStatus.UNCOMPLETED_01 && task.TODO_YMD < DateTime.Today)
+                if (task._taskStatusCode._code == Constants.TaskStatus.UNCOMPLETED_01 && task._todoYmd < DateTime.Today)
                 {
                     ListView_Task.Items[countForList].BackColor = Color.SteelBlue;
                     ListView_Task.Items[countForList].ForeColor = Color.White;

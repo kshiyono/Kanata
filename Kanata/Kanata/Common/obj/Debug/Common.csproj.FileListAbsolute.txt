@@ -40,3 +40,9 @@ C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Common\obj\Debug\Common.dll
 C:\Users\Shota Katsuyama\Dropbox\10_プログラミング資産\20_練習用\30_C#\20190505_Kanata\Kanata\Common\obj\Debug\Common.pdb
+D:\Git\Kanata\Kanata\Common\bin\Debug\Common.dll
+D:\Git\Kanata\Kanata\Common\bin\Debug\Common.pdb
+D:\Git\Kanata\Kanata\Common\obj\Debug\Common.csprojAssemblyReference.cache
+D:\Git\Kanata\Kanata\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Git\Kanata\Kanata\Common\obj\Debug\Common.dll
+D:\Git\Kanata\Kanata\Common\obj\Debug\Common.pdb
